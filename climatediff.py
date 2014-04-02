@@ -31,7 +31,7 @@ nc14 = Dataset(os.path.realpath("./") +"/air.sfc.2014.nc")
 
 #declare world basemap
 m = Basemap(llcrnrlon=0,llcrnrlat=-90,urcrnrlon=360,urcrnrlat=90,projection='mill')
-fig=plt.figure(figsize=(8,4.5))
+fig=plt.figure(figsize=(24,12))
 ax = fig.add_axes([0.05,0.05,0.9,0.85])
 #same for both years
 lats = nc11.variables["lat"]
@@ -74,3 +74,5 @@ m.drawmeridians(meridians)
 cb = m.colorbar(colorfilled, "bottom", "5%", pad="2%")
 cb.set_label("Kelvin")
 ax.set_title("Jan/Feb(2011) - Jan/Feb(2014)")
+plt.savefig("figure.png", pad_inches=0.0, bbox_inches="tight")
+plt.clf()
